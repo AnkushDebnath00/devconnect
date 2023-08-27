@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 
-const Card = ({ data, currUser, setCurrUser, currUser, setCurrUser }) => {
+const Card = ({ data, currUser, setCurrUser }) => {
   const { user } = useAuthContext();
   const [status, setStatus] = useState("");
   const [maxChar, setMaxChar] = useState(50);
@@ -167,9 +167,7 @@ const Card = ({ data, currUser, setCurrUser, currUser, setCurrUser }) => {
           onClick={() => connectUser(data._id)}
           disabled={status === "Pending"}
         >
-          <img src="/connect.svg" alt="c" />
-          {isPending ? "Accept" : "Connect"}
-        </button>
+         </button>
         <div>
           {
             <p className="text-sm mx-2 ">

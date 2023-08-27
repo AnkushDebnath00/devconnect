@@ -12,7 +12,6 @@ function Home() {
   const [currUser, setCurrUser] = useState(null);
 
   useEffect(() => {
-<<<<<<< HEAD
     fetch(`https://devconnect-pwsh.onrender.com/api/user`)
       .then((res) => res.json())
       .then((json) => setData(json))
@@ -27,26 +26,10 @@ function Home() {
         })
         .catch((e) => console.log(e));
   }, [user]);
-=======
-    fetch("https://devconnect-pwsh.onrender.com/api/user")
-      .then(res => res.json())
-      .then(json => setData(json))
-      .catch(e => console.log(e));
-
-    fetch(`https://devconnect-pwsh.onrender.com/api/user/info/${user?.id}`)
-      .then(res => res.json())
-      .then(json => {
-        setCurrUser(json)
-        console.log(json, 'home73');
-      })
-      .catch(e => console.log(e));
-  }, []);
->>>>>>> 3a948bbad46871ff722c12dc64ed219e22d0657d
 
   return (
     <>
       <div className="px-3 mx-auto max-w-7xl">
-<<<<<<< HEAD
         {currUser ? (
           <div className="flex flex-row items-center space-x-4 mx-4 py-2 my-4">
             <Link
@@ -56,12 +39,6 @@ function Home() {
               {currUser?.fullName}
             </Link>
           </div>
-=======
-        {currUser ? (<>
-          {/* <h3 className="font-bold text-2xl">Feed</h3> */}
-          <h3 className="font-bold text-2xl">{currUser?.fullName}</h3>
-        </>
->>>>>>> 3a948bbad46871ff722c12dc64ed219e22d0657d
         ) : (
           <h3 className="">Loading...</h3>
         )}
@@ -71,7 +48,6 @@ function Home() {
           >
             <Masonry gutter={"1.5rem"}>
               {data &&
-<<<<<<< HEAD
                 data
                   .filter((x) => user.id !== x._id)
                   .map((x, index) => {
@@ -85,13 +61,6 @@ function Home() {
                       />
                     );
                   })}
-=======
-                data.filter(x => user.id !== x._id).map((x, index) => {
-                  return (
-                    <Card key={index} data={x} currUser={currUser} setCurrUser={setCurrUser} className="max-w-[400px]" />
-                  );
-                })}
->>>>>>> 3a948bbad46871ff722c12dc64ed219e22d0657d
             </Masonry>
           </ResponsiveMasonry>
         </div>
