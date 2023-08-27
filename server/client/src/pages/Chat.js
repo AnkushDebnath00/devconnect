@@ -12,7 +12,7 @@ const Chat = () => {
   const [sentmsg, setSentmsg] = useState("");
 
   useEffect(() => {
-    fetch(`://localhost:4000`+ "/api/user")
+    fetch(`https://devconnect-pwsh.onrender.com` + "/api/user")
       .then((res) => res.json())
       .then((json) =>
         setData(
