@@ -167,8 +167,8 @@ const Card = ({ data, currUser, setCurrUser }) => {
           onClick={() => connectUser(data._id)}
           disabled={status === "Pending"}
         >
-          {renderIcons()}
-          {status}
+          {renderIcons(status)}
+          <span className="text-black ms-1">{status.toUpperCase()}</span>
         </button>
         <div>
           {
