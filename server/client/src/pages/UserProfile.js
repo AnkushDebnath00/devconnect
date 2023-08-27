@@ -5,7 +5,7 @@ import { useAuthContext } from "../hooks/useAuthContext";
 const UserProfile = () => {
   const { id } = useParams();
   const { user } = useAuthContext();
-  const url = `http://localhost:4000/api/user/info/${id}`;
+  const url = `https://devconnect-pwsh.onrender.com/api/user/info/${id}`;
   const [userInfo, setUserInfo] = useState();
   const navigate = useNavigate();
 
@@ -18,7 +18,7 @@ const UserProfile = () => {
 
   const addConnection = () => {
     console.log(user.id, id, "userprofile20");
-    fetch(`http://localhost:4000/api/user/connect`, {
+    fetch(`https://devconnect-pwsh.onrender.com/api/user/connect`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",

@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 
 function EditProfile() {
-  // const url = `http://localhost:4000/api/user`
+  // const url = `https://devconnect-pwsh.onrender.com/api/user`
   const navigate = useNavigate();
   const { state } = useLocation();
   const data = state.userInfo;
@@ -53,7 +53,7 @@ function EditProfile() {
     console.log(formData, 33);
     try {
       const response = await fetch(
-        `http://localhost:4000/api/user/${id}`,
+        `https://devconnect-pwsh.onrender.com/api/user/${id}`,
         {
           method: "PATCH",
           headers: {

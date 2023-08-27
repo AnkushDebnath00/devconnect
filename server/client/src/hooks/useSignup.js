@@ -15,7 +15,7 @@ export const useSignup = () => {
     setError(null);
 
     const response = await fetch(
-      `http://localhost:4000/api/user/signup`,
+      `https://devconnect-pwsh.onrender.com/api/user/signup`,
       {
         method: "POST",
         headers: { "Content-type": "application/json" },

@@ -35,7 +35,7 @@ const Card = ({ data, currUser, setCurrUser, currUser, setCurrUser }) => {
     }
     try {
       const res = await fetch(
-        `http://localhost:4000/api/user/connect`,
+        `https://devconnect-pwsh.onrender.com/api/user/connect`,
         {
           method: "PUT",
           headers: {

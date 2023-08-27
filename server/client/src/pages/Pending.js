@@ -11,13 +11,13 @@ function Pending() {
   useEffect(() => {
     console.log(user);
     user &&
-      fetch(`http://localhost:4000/api/user/pending/${user?.id}`)
+      fetch(`https://devconnect-pwsh.onrender.com/api/user/pending/${user?.id}`)
         .then((res) => res.json())
         .then((json) => setData(json))
         .catch((e) => console.log(e));
 
     user &&
-      fetch(`http://localhost:4000/api/user/info/${user?.id}`)
+      fetch(`https://devconnect-pwsh.onrender.com/api/user/info/${user?.id}`)
         .then((res) => res.json())
         .then((json) => {
           setCurrUser(json);

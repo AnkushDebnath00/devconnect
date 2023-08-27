@@ -27,7 +27,7 @@ const Chat = () => {
       .catch((e) => console.log(e));
 
     user &&
-      fetch(`http://localhost:4000/api/user/info/${user.id}`)
+      fetch(`https://devconnect-pwsh.onrender.com/api/user/info/${user.id}`)
         .then((res) => res.json())
         .then((json) => {
           setCurrUser(json);
