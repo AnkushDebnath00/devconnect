@@ -29,7 +29,7 @@ const Card = ({ data, currUser, setCurrUser }) => {
       alert(status);
       return;
     }
-    if (status === 'Message' || status === 'Pending') {
+    if (status === "Message" || status === "Pending") {
       alert(status);
       return;
     }
@@ -167,7 +167,9 @@ const Card = ({ data, currUser, setCurrUser }) => {
           onClick={() => connectUser(data._id)}
           disabled={status === "Pending"}
         >
-         </button>
+          {renderIcons()}
+          {status}
+        </button>
         <div>
           {
             <p className="text-sm mx-2 ">
