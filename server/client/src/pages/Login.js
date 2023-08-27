@@ -8,8 +8,12 @@ function Login() {
   const { login, error, isLoading } = useLogin();
 
   const handleSubmit = async function (e) {
-    e.preventDefault();
-    await login(email, password);
+    try {
+      e.preventDefault();
+      await login(email, password);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (

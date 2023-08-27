@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const validator = require("validator");
+const axios = require("axios");
 
 const Schema = mongoose.Schema;
 
@@ -49,15 +50,16 @@ const userSchema = new Schema({
   },
   isAvailable: {
     type: Boolean,
-    default: true
+    default: true,
   },
   connections: [Schema.Types.ObjectId],
-  pendingReq: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-  }]
+  pendingReq: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
-
 
 userSchema.statics.signup = async function (
   email,
@@ -84,13 +86,20 @@ userSchema.statics.signup = async function (
     throw Error("Email already exist");
   }
 
-  const data = await fetch(`https://api.github.com/users/${username}`);
-  const { avatar_url } = await data.json();
+  const data = await axios(`https://api.github.com/users/${username}`);
+  const { avatar_url } = data;
 
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
 
-  const user = await this.create({ email, password: hash, username, fullName, 'urls.github': `https://github.com/${username}`, profile_img: avatar_url });
+  const user = await this.create({
+    email,
+    password: hash,
+    username,
+    fullName,
+    "urls.github": `https://github.com/${username}`,
+    profile_img: avatar_url,
+  });
 
   return user;
 };
