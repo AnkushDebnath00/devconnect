@@ -113,11 +113,7 @@ const updateUserProfile = async function (req, res) {
 
 const connectUser = async function (req, res) {
   const { id, connectTo, status } = req.body;
-<<<<<<< HEAD
   console.log(typeof status, status, 108);
-=======
-  console.log(typeof (status), status, 108)
->>>>>>> 3a948bbad46871ff722c12dc64ed219e22d0657d
   try {
     const x = await User.findByIdAndUpdate(
       { _id: id },
@@ -125,11 +121,7 @@ const connectUser = async function (req, res) {
       { new: true }
     );
     let y;
-<<<<<<< HEAD
     if (status === "Accept") {
-=======
-    if (status === 'Accept') {
->>>>>>> 3a948bbad46871ff722c12dc64ed219e22d0657d
       y = await User.findByIdAndUpdate(
         { _id: id },
         { $pull: { pendingReq: connectTo } },
@@ -142,11 +134,7 @@ const connectUser = async function (req, res) {
         { new: true }
       );
     }
-<<<<<<< HEAD
     // console.log(x, y, 129);
-=======
-    console.log(x, y, 129);
->>>>>>> 3a948bbad46871ff722c12dc64ed219e22d0657d
     res.json(x);
   } catch (error) {
     res.status(500).json({ message: error.message });

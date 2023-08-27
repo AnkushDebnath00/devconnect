@@ -47,7 +47,6 @@ const userSchema = new Schema({
     default:
       "https://icon-library.com/images/anonymous-avatar-icon/anonymous-avatar-icon-25.jpg",
   },
-<<<<<<< HEAD
   isAvailable: {
     type: Boolean,
     default: true
@@ -57,10 +56,6 @@ const userSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   }]
-=======
-  connections: [Schema.Types.ObjectId],
-  pendingReq: [Schema.Types.ObjectId]
->>>>>>> 3a948bbad46871ff722c12dc64ed219e22d0657d
 });
 
 
